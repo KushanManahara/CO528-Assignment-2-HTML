@@ -4,18 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angle Selector</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div>
+    <div class="container">
+        <h1>Angle Selector</h1>
         <input type="text" id="angleInput" value="0">
         <input type="range" id="angleSlider" min="0" max="360" value="180">
-    </div>
-    <div>
-        <input type="radio" name="preset" id="preset0" value="0"> 0°
-        <input type="radio" name="preset" id="preset45" value="45"> 45°
-        <input type="radio" name="preset" id="preset60" value="60"> 60°
-        <input type="radio" name="preset" id="preset90" value="90"> 90°
-        <input type="radio" name="preset" id="preset180" value="180"> 180°
+        <div class="presets">
+            <label>
+                <input type="radio" name="preset" id="preset0" value="0"> 0°
+            </label>
+            <label>
+                <input type="radio" name="preset" id="preset45" value="45"> 45°
+            </label>
+            <label>
+                <input type="radio" name="preset" id="preset60" value="60"> 60°
+            </label>
+            <label>
+                <input type="radio" name="preset" id="preset90" value="90"> 90°
+            </label>
+            <label>
+                <input type="radio" name="preset" id="preset180" value="180"> 180°
+            </label>
+        </div>
     </div>
 
     <script>
