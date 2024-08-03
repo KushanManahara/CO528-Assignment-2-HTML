@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angle Selector</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="angleInput" value="0">
+        <input type="range" id="angleSlider" min="0" max="360" value="180">
+    </div>
+    <div>
+        <input type="radio" name="preset" id="preset0" value="0"> 0°
+        <input type="radio" name="preset" id="preset45" value="45"> 45°
+        <input type="radio" name="preset" id="preset60" value="60"> 60°
+        <input type="radio" name="preset" id="preset90" value="90"> 90°
+        <input type="radio" name="preset" id="preset180" value="180"> 180°
+    </div>
+
+    <script>
+        const angleInput = document.getElementById('angleInput');
+        const angleSlider = document.getElementById('angleSlider');
+        const radioButtons = document.querySelectorAll('input[name="preset"]');
+
+        function updateAll(value) {
+            const validValue = Math.max(0, Math.min(360, Number(value)));
+            angleInput.value = validValue;
+            angleSlider.value = validValue;
+            radioButtons.forEach(rb => rb.checked = rb.value == validValue);
+        }
+
+        angleInput.addEventListener('input', (e) => {
+            updateAll(e.target.value);
+        });
+
+        angleSlider.addEventListener('input', (e) => {
+            updateAll(e.target.value);
+        });
+
+        radioButtons.forEach(rb => rb.addEventListener('change', (e) => {
+            updateAll(e.target.value);
+        }));
+
+        updateAll(0);
+    </script>
+</body>
+</html>
